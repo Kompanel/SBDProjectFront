@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <table class ="table-bordered">
+      <tr>
+        <th>Nazwa</th>
+        <th>Premiera</th>
+        <th>cena</th>
+        <th>platforma</th>
+      </tr>
+
+      <tr *ngFor="let game of games" style="margin: 10px">
+        <td class="align-content-xl-center" style="margin: 10px">{{ game.gameName }}</td>
+        <td class="align-content-xl-center" style="margin: 10px">{{ game.gamePremiere || "brak" }}</td>
+        <td class="align-content-xl-center" style="margin: 10px">{{ game.gamePrice }}</td>
+        <td class="align-content-xl-center" style="margin: 10px">{{ game.gamePlatform || "brak" }}</td>
+      </tr>
+
+
+    </table>
+
+</div>
+
+
+
