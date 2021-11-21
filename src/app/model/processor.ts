@@ -1,3 +1,5 @@
+import {HardwareRequirement} from "./hardware-requirement";
+
 export class Processor {
 
   // @ts-ignore
@@ -31,7 +33,7 @@ export class Processor {
   integratedGraphics: boolean;
 
   // @ts-ignore
-  unlockedMultiplier: number;
+  unlockedMultiplier: boolean;
 
   // @ts-ignore
   powerConsumption: number;
@@ -43,6 +45,9 @@ export class Processor {
   benchmarkValue: number;
 
   // @ts-ignore
-  hardwareRequirements: any[];
+  hardwareRequirements: HardwareRequirement[];
+
+  // @ts-ignore
+  imageUrl: string;
 
 }

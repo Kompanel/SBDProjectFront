@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {Game} from "../model/game";
 
 
@@ -14,25 +14,23 @@ export class GameService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // return list of games by page
-  getGamesListPaginate(thePage: number,
-                       thePageSize: number): Observable<GetResponseGames>{
-
-    const searchUrl = `${this.baseUrl}/all?page=${thePage}&size=${thePageSize}`;
-
-    return this.httpClient.get<GetResponseGames>(searchUrl);
-
-  }
 
   getGamesList(): Observable<GetResponseGames>{
 
-    const searchUrl = `${this.baseUrl}/al`;
+    const searchUrl = `${this.baseUrl}`;
 
     return this.httpClient.get<GetResponseGames>(searchUrl);
   }
 
+  getGame(gameId: number) {
+    const searchUrl = `${this.baseUrl}/${gameId}`
+
+    return this.httpClient.get<Game>(searchUrl);
+  }
 }
 
-interface GetResponseGames {
-  games: Game[];
+export interface GetResponseGames {
+  content: {
+    games: Game[]
+  }
 }

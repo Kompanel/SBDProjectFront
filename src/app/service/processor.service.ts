@@ -14,13 +14,21 @@ export class ProcessorService {
 
   getProcessorList(): Observable<GetResponseProcessors>{
 
-    const searchUrl = `${this.baseUrl}/al`;
+    const searchUrl = `${this.baseUrl}`;
 
     return this.httpClient.get<GetResponseProcessors>(searchUrl);
+  }
+
+  getProcessor(procesorId: number) {
+    const searchUrl = `${this.baseUrl}/${procesorId}`
+
+    return this.httpClient.get<Processor>(searchUrl);
   }
 
 }
 
 interface GetResponseProcessors{
-  processors: Processor[];
+  content: {
+    processors: Processor[]
+  }
 }

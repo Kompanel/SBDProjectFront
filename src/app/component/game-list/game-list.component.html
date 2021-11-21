@@ -1,23 +1,31 @@
-<div class="container-fluid">
-    <table class ="table-bordered">
-      <tr>
-        <th>Nazwa</th>
-        <th>Premiera</th>
-        <th>cena</th>
-        <th>platforma</th>
-      </tr>
 
-      <tr *ngFor="let game of games" style="margin: 10px">
-        <td class="align-content-xl-center" style="margin: 10px">{{ game.gameName }}</td>
-        <td class="align-content-xl-center" style="margin: 10px">{{ game.gamePremiere || "brak" }}</td>
-        <td class="align-content-xl-center" style="margin: 10px">{{ game.gamePrice }}</td>
-        <td class="align-content-xl-center" style="margin: 10px">{{ game.gamePlatform || "brak" }}</td>
-      </tr>
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- loop over the collection of products -->
+        <div *ngFor="let game of games" class="col-2">
+          <div class="col-auto">
+
+            <a routerLink="/games/{{ game.id }}">
+              <img src="{{game.imageUrl}}" class="img-fluid">
+            </a>
+
+            <a routerLink="/games/{{ game.id }}">
+              <a class="container">{{ game.gameName }}</a>
+            </a>
+
+            <div class="container-fluid">{{ game.gamePrice}} PLN</div>
+          </div>
+
+        </div>
+
+        <!-- if products empty then display a message-->
+        <div *ngIf="games?.length == 0" class="alert alert-warning col-md-12" role="alert">
+          No products found.
+        </div>
+
+      </div>
 
 
-    </table>
-
-</div>
-
-
+    </div>
 

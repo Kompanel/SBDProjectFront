@@ -1,41 +1,31 @@
+
 <div class="container-fluid">
-  <table class ="table-bordered">
-    <tr>
-      <th>processorModel</th>
-      <th>producer</th>
-      <th>lithography</th>
-      <th>cores</th>
-      <th>threads</th>
-      <th>clockFrequency</th>
-      <th>cache</th>
-      <th>processorPremiere</th>
-      <th>integratedGraphics</th>
-      <th>unlockedMultiplier</th>
-      <th>powerConsumption</th>
-      <th>processorPrice</th>
-      <th>benchmarkValue</th>
-      <th>hardwareRequirements</th>
-    </tr>
+  <div class="row">
 
-    <tr *ngFor="let processor of processors" style="margin: 10px">
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.processorModel }}</td>
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.producer }}</td>
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.lithography }}</td>
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.cores }}</td>
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.processorPremiere }}</td>
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.integratedGraphics }}</td>
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.unlockedMultiplier }}</td>
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.powerConsumption }}</td>
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.processorPrice }}</td>
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.benchmarkValue }}</td>
-      <td class="align-content-xl-center" style="margin: 10px">{{ processor.hardwareRequirements }}</td>
+<!--     loop over the collection of products-->
+    <div *ngFor="let processor of processors" class="col-2">
+      <div class="col-auto">
 
-    </tr>
+        <a routerLink="/processors/{{ processor.processorId }}">
+          <img src="{{processor.imageUrl}}" class="img-fluid">
+        </a>
 
+        <a routerLink="/processors/{{ processor.processorId }}">
+          <a class="container">{{ processor.processorModel }}</a>
+        </a>
 
-  </table>
+        <div class="container-fluid">{{ processor.processorPrice}} PLN</div>
+      </div>
+
+    </div>
+
+    <!-- if products empty then display a message-->
+    <div *ngIf="processors?.length == 0" class="alert alert-warning col-md-12" role="alert">
+      No products found.
+    </div>
+
+  </div>
+
 
 </div>
-
-
 

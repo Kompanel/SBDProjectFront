@@ -9,8 +9,7 @@ import {ProcessorService} from "../../service/processor.service";
 })
 export class ProcessorListComponent implements OnInit {
 
-  // @ts-ignore
-  processors: GetResponseProcessors;
+  processors: Processor[] = [];
 
   constructor(private processorService: ProcessorService) { }
 
@@ -19,11 +18,14 @@ export class ProcessorListComponent implements OnInit {
   }
 
   listProcessor(){
-    this.processorService.getProcessorList().subscribe(
-      data =>{
-        this.processors = data;
-      }
-    )
+    this.processorService.getProcessorList().subscribe(this.processResult());
+  }
+
+  processResult() {
+    // @ts-ignore
+    return data => {
+      this.processors = data;
+    }
   }
 
 }

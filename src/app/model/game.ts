@@ -1,3 +1,7 @@
+import {HardwareRequirement} from "./hardware-requirement";
+import {GameCreation} from "./game-creation";
+import {GamePlatform} from "./game-platform";
+
 export class Game {
 
   // @ts-ignore
@@ -13,13 +17,15 @@ export class Game {
   gamePrice: number;
 
   // @ts-ignore
-  hardwareRequirements: any[];
+  hardwareRequirements: HardwareRequirement[];
 
   // @ts-ignore
-  gamePlatform: number;
+  gamePlatform: GamePlatform;
 
   // @ts-ignore
-  gameCreations: any[];
+  gameCreations: GameCreation[];
 
+  // @ts-ignore
+  imageUrl: string;
 
 }
