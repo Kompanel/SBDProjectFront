@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Processor} from "../model/processor";
-import {ProcessorService} from "../service/processor.service";
+import {Processor} from "../../model/processor";
+import {ProcessorService} from "../../service/processor.service";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({

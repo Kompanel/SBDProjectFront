@@ -1,0 +1,20 @@
+<div class="detail-section">
+  <div class="container-fluid">
+
+    <img src="{{ graphicsCard.imageUrl }}" height="300" width="600" class="img-fluid">
+
+    <h3>{{ graphicsCard.cardModel }}</h3>
+    <div class="price">{{ graphicsCard.cardPrice }}PLN</div>
+    <hr>
+    <h1>Description</h1>
+    <p>Premiere: {{graphicsCard.premiereDate}}</p>
+    <p>Memory: {{graphicsCard.memory}}GB</p>
+    <p>Memory type: {{graphicsCard.memoryType}}</p>
+    <p>Power consumption: {{graphicsCard.powerConsumption}}W</p>
+    <p>Benchmark Value: {{graphicsCard.benchmarkValue}}</p>
+
+
+
+    <a routerLink="/games" class="mt-5">Back to Games List</a>
+  </div>
+</div>

@@ -12,16 +12,23 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {GameService} from "./service/game.service";
 import { ProcessorListComponent } from './component/processor-list/processor-list.component';
-import { GameDetailsComponent } from './game-details/game-details.component';
-import { ProcessorDetailsComponent } from './processor-details/processor-details.component';
+import { GameDetailsComponent } from './component/game-details/game-details.component';
+import { ProcessorDetailsComponent } from './component/processor-details/processor-details.component';
+import { GraphicsCardListComponent } from './component/graphics-card-list/graphics-card-list.component';
+import { GraphicsCardDetailsComponent } from './component/graphics-card-details/graphics-card-details.component';
+import { MainMenuComponent } from './component/main-menu/main-menu.component';
+import { InformationsComponent } from './component/informations/informations.component';
 
 const routes: Routes = [
   {path: 'games/:id', component: GameDetailsComponent},
   {path: 'processors/:id', component: ProcessorDetailsComponent},
+  {path: 'graphics-cards/:id', component: GraphicsCardDetailsComponent},
   {path: 'games', component: GameListComponent},
   {path: 'processors', component: ProcessorListComponent},
-  {path: '', redirectTo: '/games', pathMatch: 'full'},
-  {path: '**', redirectTo: '/games', pathMatch: 'full'},
+  {path: 'graphics-cards', component: GraphicsCardListComponent},
+  {path: 'informations', component: InformationsComponent},
+  {path: '', component: MainMenuComponent},
+  {path: '**', redirectTo: '/', pathMatch: 'full'},
 
 ]
 
@@ -34,7 +41,11 @@ const routes: Routes = [
     GameListComponent,
     ProcessorListComponent,
     GameDetailsComponent,
-    ProcessorDetailsComponent
+    ProcessorDetailsComponent,
+    GraphicsCardListComponent,
+    GraphicsCardDetailsComponent,
+    MainMenuComponent,
+    InformationsComponent
   ],
   imports: [
     FormsModule,

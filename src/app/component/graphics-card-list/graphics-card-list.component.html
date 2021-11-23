@@ -1,0 +1,33 @@
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!--     loop over the collection of products-->
+    <div *ngFor="let graphicsCard of graphicsCards" class="col-2">
+      <div class="col-auto">
+
+        <a routerLink="/graphics-cards/{{ graphicsCard.cardId }}">
+          <img src="{{graphicsCard.imageUrl}}" height="200" width="450" class="card-img">
+        </a>
+
+        <a routerLink="/graphics-cards/{{ graphicsCard.cardId }}">
+          <a class="container">{{ graphicsCard.cardModel }}</a>
+        </a>
+
+        <div class="container-fluid">{{ graphicsCard.cardPrice}} PLN</div>
+
+
+      </div>
+
+    </div>
+
+    <!-- if products empty then display a message-->
+    <div *ngIf="graphicsCards?.length == 0" class="alert alert-warning col-md-12" role="alert">
+      No products found.
+    </div>
+
+  </div>
+
+
+</div>
+

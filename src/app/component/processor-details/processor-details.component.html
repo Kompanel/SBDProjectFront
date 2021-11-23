@@ -1,7 +1,7 @@
 <div class="detail-section">
   <div class="container-fluid">
 
-    <img src="{{ processor.imageUrl }}" class="img-fluid">
+    <img src="{{ processor.imageUrl }}" height="300" width="400" class="img-fluid">
 
     <h3>{{ processor.processorModel }}</h3>
     <div class="price">{{ processor.processorPrice }}PLN</div>
@@ -17,6 +17,6 @@
     <p *ngIf="processor.unlockedMultiplier">Multiplayer unlocked</p>
     <p>Benchmark value: {{processor.benchmarkValue}}</p>
 
-    <a routerLink="/processors" class="mt-5">Back to Processors List</a>
+    <a routerLink="/graphics-cards" class="mt-5">Back to Processors List</a>
   </div>
 </div>

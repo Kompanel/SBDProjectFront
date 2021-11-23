@@ -4,7 +4,7 @@ import {HardwareRequirement} from "./hardware-requirement";
 export class GraphicsCard {
 
   // @ts-ignore
-  id: number;
+  cardId: number;
 
   // @ts-ignore
   cardModel: string;
@@ -28,7 +28,7 @@ export class GraphicsCard {
   benchmarkValue: number;
 
   // @ts-ignore
-  hardwareRequirements: HardwareRequirement[];
+  imageUrl: string;
 
 
 }
