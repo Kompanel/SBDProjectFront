@@ -18,8 +18,10 @@ import { GraphicsCardListComponent } from './component/graphics-card-list/graphi
 import { GraphicsCardDetailsComponent } from './component/graphics-card-details/graphics-card-details.component';
 import { MainMenuComponent } from './component/main-menu/main-menu.component';
 import { InformationsComponent } from './component/informations/informations.component';
+import { GameRunCheckerComponent } from './component/game-run-checker/game-run-checker.component';
 
 const routes: Routes = [
+  {path: '', component: GameRunCheckerComponent},
   {path: 'games/:id', component: GameDetailsComponent},
   {path: 'processors/:id', component: ProcessorDetailsComponent},
   {path: 'graphics-cards/:id', component: GraphicsCardDetailsComponent},
@@ -45,7 +47,8 @@ const routes: Routes = [
     GraphicsCardListComponent,
     GraphicsCardDetailsComponent,
     MainMenuComponent,
-    InformationsComponent
+    InformationsComponent,
+    GameRunCheckerComponent
   ],
   imports: [
     FormsModule,

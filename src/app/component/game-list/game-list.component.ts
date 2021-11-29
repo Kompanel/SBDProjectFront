@@ -27,7 +27,6 @@ export class GameListComponent implements OnInit {
     return data => {
       this.games = data;
     }
-
   }
 
 }
