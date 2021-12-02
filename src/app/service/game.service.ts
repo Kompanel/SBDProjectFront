@@ -22,6 +22,11 @@ export class GameService {
     return this.httpClient.get<GetResponseGames>(searchUrl);
   }
 
+  getPcGameSList(): Observable<GetResponseGames>{
+    const searchUrl = `${this.baseUrl}/PC`;
+    return this.httpClient.get<GetResponseGames>(searchUrl);
+  }
+
   getGame(gameId: number) {
     const searchUrl = `${this.baseUrl}/${gameId}`
 

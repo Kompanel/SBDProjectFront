@@ -57,7 +57,7 @@
           <div class="col-md-2"> <label>Ram[GB]:</label></div>
           <div class="col-md-9">
             <div class="input-space">
-              <input formControlName="ram" type="number">
+              <input formControlName="tempRam" type="number">
             </div>
           </div>
         </div>
@@ -65,35 +65,6 @@
         <!-- submit button-->
         <div class="text-center">
           <button type="submit" class="btn btn-info">Submit</button>
-        </div>
-
-        <div *ngIf="received">
-
-          <table>
-
-            <tr>
-              <td></td>
-              <td>GraphicsCard</td>
-              <td>Processor</td>
-              <td>Ram</td>
-            </tr>
-
-            <tr>
-              <td>Minimal</td>
-              <td>{{minimalCardGraphics}}</td>
-              <td>{{minimalProcessor}}</td>
-              <td>{{minimalRam}}</td>
-            </tr>
-
-            <tr>
-              <td>Recommended</td>
-              <td>{{recommendedCardGraphics}}</td>
-              <td>{{recommendedProcessor}}</td>
-              <td>{{recommendedRam}}</td>
-            </tr>
-
-          </table>
-
         </div>
 
       </form>

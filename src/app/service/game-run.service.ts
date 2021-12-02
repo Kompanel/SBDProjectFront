@@ -22,7 +22,10 @@ export class GameRunService {
 }
 
 export interface GetResponseWillItRun {
-  content: {
-    does: boolean;
-  }
+  minimalGraphicsCard: boolean;
+  minimalProcessor: boolean;
+  minimalRam: boolean;
+  recommendedGraphicsCard: boolean;
+  recommendedProcessor: boolean;
+  recommendedRam: boolean;
 }

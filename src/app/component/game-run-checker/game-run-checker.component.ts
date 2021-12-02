@@ -22,52 +22,41 @@ export class GameRunCheckerComponent implements OnInit {
   games: Game[] = [];
   processors: Processor[] = [];
   graphicsCards: GraphicsCard[] = [];
-  minimalCardGraphics: boolean = false;
-  minimalProcessor: boolean = false;
-  minimalRam: boolean = false;
-  recommendedCardGraphics: boolean = false;
-  recommendedProcessor: boolean = false;
-  recommendedRam: boolean = false;
-  received: boolean = false;
+
+  gameId: number = -1;
+  graphicsCardId: number = -1;
+  processorId: number = -1;
+  ram: number = -1;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private processorService: ProcessorService,
               private gameService: GameService,
-              private graphicsCardService: GraphicsCardService,
-              private gameRunService: GameRunService) {
+              private graphicsCardService: GraphicsCardService) {
   }
 
   ngOnInit(): void {
     this.processorService.getProcessorList().subscribe(this.processorList());
-    this.gameService.getGamesList().subscribe(this.gameList());
+    this.gameService.getPcGameSList().subscribe(this.gameList());
     this.graphicsCardService.getGraphicsCardsList().subscribe(this.graphicsCardList());
-
-    this.games = this.games.filter(game => game.gamePlatform.platformName == "PC");
 
     this.yourSetupFormGroup = this.formBuilder.group({
       game: ['', Validators.required],
       processor: ['', Validators.required],
       graphicsCard: ['', Validators.required],
-      ram: ['', Validators.required]
+      tempRam: ['', Validators.required]
     })
   }
 
   onSubmit() {
-    let gameId = this.yourSetupFormGroup.get('game')?.value.id
-    let graphicsCardId = this.yourSetupFormGroup.get('graphicsCard')?.value.cardId;
-    let processorId = this.yourSetupFormGroup.get('processor')?.value.processorId;
-    let ram = this.yourSetupFormGroup.get('ram')?.value
-
-    this.willItRun(gameId, graphicsCardId, processorId, ram);
-
+    this.gameId = this.yourSetupFormGroup.get('game')?.value.id
+    this.graphicsCardId = this.yourSetupFormGroup.get('graphicsCard')?.value.cardId;
+    this.processorId = this.yourSetupFormGroup.get('processor')?.value.processorId;
+    this.ram = this.yourSetupFormGroup.get('tempRam')?.value
+    console.log(`/pc-game-run-test/${this.gameId}/${this.processorId}/${this.graphicsCardId}/${this.ram}`)
+    this.router.navigateByUrl(`/pc-game-run-test/${this.gameId}/${this.processorId}/${this.graphicsCardId}/${this.ram}`)
   }
 
-  willItRun(gameId: number, graphicsCardId: number, processorId: number, ram: number) {
-    this.gameRunService.getWillItRunResponse(gameId, processorId, graphicsCardId, ram).subscribe(this.processResult);
-    console.log("yes");
-    this.received = true;
-  }
 
   processorList() {
     // @ts-ignore
@@ -87,18 +76,6 @@ export class GameRunCheckerComponent implements OnInit {
     // @ts-ignore
     return data => {
       this.graphicsCards = data;
-    }
-  }
-
-  processResult() {
-    // @ts-ignore
-    return data => {
-      this.minimalCardGraphics = data.minimalCardGraphics;
-      this.minimalProcessor = data.minimalCardGraphics;
-      this.minimalRam = data.minimalCardGraphics;
-      this.recommendedCardGraphics = data.minimalCardGraphics;
-      this.recommendedProcessor = data.minimalCardGraphics;
-      this.recommendedRam = data.minimalCardGraphics;
     }
   }
 

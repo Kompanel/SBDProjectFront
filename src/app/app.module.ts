@@ -19,9 +19,12 @@ import { GraphicsCardDetailsComponent } from './component/graphics-card-details/
 import { MainMenuComponent } from './component/main-menu/main-menu.component';
 import { InformationsComponent } from './component/informations/informations.component';
 import { GameRunCheckerComponent } from './component/game-run-checker/game-run-checker.component';
+import { GameRunResoultComponent } from './component/game-run-resoult/game-run-resoult.component';
+import { AdminPanelComponent } from './component/admin-panel/admin-panel.component';
 
 const routes: Routes = [
-  {path: '', component: GameRunCheckerComponent},
+  {path: 'pc-game-run-test/:gameId/:processorId/:cardId/:ram', component: GameRunResoultComponent},
+  {path: 'pc-game-run-test', component: GameRunCheckerComponent},
   {path: 'games/:id', component: GameDetailsComponent},
   {path: 'processors/:id', component: ProcessorDetailsComponent},
   {path: 'graphics-cards/:id', component: GraphicsCardDetailsComponent},
@@ -48,7 +51,9 @@ const routes: Routes = [
     GraphicsCardDetailsComponent,
     MainMenuComponent,
     InformationsComponent,
-    GameRunCheckerComponent
+    GameRunCheckerComponent,
+    GameRunResoultComponent,
+    AdminPanelComponent
   ],
   imports: [
     FormsModule,
