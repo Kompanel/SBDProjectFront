@@ -7,20 +7,39 @@
     <div class="price">{{ game.gamePrice }}PLN</div>
     <hr>
     <h1>Description</h1>
-    <p>Premiera gry:{{game.gamePremiere}}</p>
-    <p>Platforma gry:{{game.gamePlatform.platformName}}</p>
+    <p>Game premiere: {{game.gamePremiere}}</p>
+    <p>Game platform: {{game.gamePlatform.platformName}}</p>
+    <p>Made by: {{game.gameCreations[0].developer.developerName}}</p>
 
-      <h4>{{game.hardwareRequirements[0].requirementType}}</h4>
-        <p>DiscSpace: {{game.hardwareRequirements[0].discSpace}}GB</p>
-        <p>Graphics card: {{game.hardwareRequirements[0].graphicsCard.cardModel}}</p>
-        <p>Processor: {{game.hardwareRequirements[0].processor.processorModel}}</p>
-        <p>Ram: {{game.hardwareRequirements[0].ram}}GB</p>
+    <br>
+    <h4 *ngIf="game.hardwareRequirements[0].requirementType == 'Rekomedowane'">Recommended</h4>
+    <h4 *ngIf="game.hardwareRequirements[0].requirementType == 'Minimalne'">Minimal</h4>
+    <p>DiscSpace: {{game.hardwareRequirements[0].discSpace}}GB</p>
+    <p>Graphics card: {{game.hardwareRequirements[0].graphicsCard.cardModel}}</p>
+    <p>Processor: {{game.hardwareRequirements[0].processor.processorModel}}</p>
+    <p>Ram: {{game.hardwareRequirements[0].ram}}GB</p>
+    <br>
 
-    <h4>{{game.hardwareRequirements[1].requirementType}}</h4>
+
+    <h4 *ngIf="game.hardwareRequirements[1].requirementType == 'Rekomedowane'">Recommended</h4>
+    <h4 *ngIf="game.hardwareRequirements[1].requirementType == 'Minimalne'">Minimal</h4>
     <p>DiscSpace: {{game.hardwareRequirements[1].discSpace}}GB</p>
     <p>Graphics card: {{game.hardwareRequirements[1].graphicsCard.cardModel}}</p>
     <p>Processor: {{game.hardwareRequirements[1].processor.processorModel}}</p>
     <p>Ram: {{game.hardwareRequirements[1].ram}}GB</p>
+
+    <br>
+    <hr>
+
+    <h3>More info</h3>
+    <h5 *ngIf="game.gameCreations.length > 1">Engines:</h5>
+    <h5 *ngIf="game.gameCreations.length == 1">Engine:</h5>
+    <div *ngFor="let gameCreation of game.gameCreations">
+      <p>Engine Name and version: {{gameCreation.engine.engineName}}
+        , {{gameCreation.engine.engineVersion}}</p>
+      <p>Programming Language: {{gameCreation.engine.programmingLanguage.languageName}}</p>
+      <br>
+    </div>
 
     <a routerLink="/games" class="mt-5">Back to Games List</a>
   </div>
