@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {catchError, Observable} from "rxjs";
 import {Game} from "../model/game";
+import {GameDto} from "../model/game-dto";
 
 
 
@@ -27,11 +28,23 @@ export class GameService {
     return this.httpClient.get<GetResponseGames>(searchUrl);
   }
 
-  getGame(gameId: number) {
+  getGame(gameId: number) : Observable<Game> {
     const searchUrl = `${this.baseUrl}/${gameId}`
 
     return this.httpClient.get<Game>(searchUrl);
   }
+
+  addGame(game: GameDto): Observable<GameDto> {
+
+    const body = JSON.stringify(game);
+    console.log(body)
+
+
+    return this.httpClient.post<GameDto>(this.baseUrl, body, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    });
+  }
+
 }
 
 export interface GetResponseGames {

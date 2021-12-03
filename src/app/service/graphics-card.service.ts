@@ -30,6 +30,6 @@ export class GraphicsCardService {
 
 export interface GetResponseGraphicsCard {
   content: {
-    games: Game[]
+    graphicsCards: GraphicsCard[]
   }
 }

@@ -21,8 +21,11 @@ import { InformationsComponent } from './component/informations/informations.com
 import { GameRunCheckerComponent } from './component/game-run-checker/game-run-checker.component';
 import { GameRunResoultComponent } from './component/game-run-resoult/game-run-resoult.component';
 import { AdminPanelComponent } from './component/admin-panel/admin-panel.component';
+import { CreateGameComponent } from './component/create-game/create-game.component';
 
 const routes: Routes = [
+  {path: 'admin/create-game', component: CreateGameComponent},
+  {path: 'admin', component: AdminPanelComponent},
   {path: 'pc-game-run-test/:gameId/:processorId/:cardId/:ram', component: GameRunResoultComponent},
   {path: 'pc-game-run-test', component: GameRunCheckerComponent},
   {path: 'games/:id', component: GameDetailsComponent},
@@ -53,7 +56,8 @@ const routes: Routes = [
     InformationsComponent,
     GameRunCheckerComponent,
     GameRunResoultComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    CreateGameComponent
   ],
   imports: [
     FormsModule,

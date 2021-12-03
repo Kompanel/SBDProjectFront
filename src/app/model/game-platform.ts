@@ -3,7 +3,7 @@ import {Game} from "./game";
 export class GamePlatform {
 
   // @ts-ignore
-  id: number;
+  platformId: number;
 
   // @ts-ignore
   platformName: string;
