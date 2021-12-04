@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Game} from "../model/game";
 import {GraphicsCard} from "../model/graphics-card";
+import {GraphicsCardDto} from "../model/graphics-card-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,22 @@ export class GraphicsCardService {
     const searchUrl = `${this.baseUrl}/${gameId}`
 
     return this.httpClient.get<GraphicsCard>(searchUrl);
+  }
+
+  addGraphicsCard(graphicsCard: GraphicsCardDto): Observable<GraphicsCardDto> {
+    return this.httpClient.post<GraphicsCardDto>(this.baseUrl, graphicsCard);
+  }
+
+  removeGraphicsCard(graphicsCardToRemoveId: number) {
+    const deleteUrl = `${this.baseUrl}/${graphicsCardToRemoveId}`;
+    this.httpClient.delete(deleteUrl).subscribe();
+  }
+
+  editGraphicsCard(graphicsCardToEditId: number, graphicsCard: GraphicsCardDto) {
+    const editUrl = `${this.baseUrl}/${graphicsCardToEditId}`;
+    this.httpClient.put(editUrl, graphicsCard, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }).subscribe();
   }
 
 }

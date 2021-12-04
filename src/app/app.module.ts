@@ -29,8 +29,16 @@ import { CreateProcessorComponent } from './component/create-processor/create-pr
 import { RemoveProcessorComponent } from './component/remove-processor/remove-processor.component';
 import { EditProcessorComponent } from './component/edit-processor/edit-processor.component';
 import { EditSingleProcessorComponent } from './component/edit-single-processor/edit-single-processor.component';
+import { CreateGraphicsCardComponent } from './component/create-graphics-card/create-graphics-card.component';
+import { EditGraphicsCardComponent } from './component/edit-graphics-card/edit-graphics-card.component';
+import { EditSingleGraphicsCardComponent } from './component/edit-single-graphics-card/edit-single-graphics-card.component';
+import { RemoveGraphicsCardComponent } from './component/remove-graphics-card/remove-graphics-card.component';
 
 const routes: Routes = [
+  {path: 'admin/create-graphics-card', component: CreateGraphicsCardComponent},
+  {path: 'admin/edit-graphics-card/:id', component: EditSingleGraphicsCardComponent},
+  {path: 'admin/edit-graphics-card', component: EditGraphicsCardComponent},
+  {path: 'admin/remove-graphics-card', component: RemoveGraphicsCardComponent},
   {path: 'admin/create-processor', component: CreateProcessorComponent},
   {path: 'admin/edit-processor/:id', component: EditSingleProcessorComponent},
   {path: 'admin/edit-processor', component: EditProcessorComponent},
@@ -78,7 +86,11 @@ const routes: Routes = [
     CreateProcessorComponent,
     RemoveProcessorComponent,
     EditProcessorComponent,
-    EditSingleProcessorComponent
+    EditSingleProcessorComponent,
+    CreateGraphicsCardComponent,
+    EditGraphicsCardComponent,
+    EditSingleGraphicsCardComponent,
+    RemoveGraphicsCardComponent
   ],
   imports: [
     FormsModule,
