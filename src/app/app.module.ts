@@ -25,8 +25,16 @@ import { CreateGameComponent } from './component/create-game/create-game.compone
 import { RemoveGameComponent } from './component/remove-game/remove-game.component';
 import { EditGameComponent } from './component/edit-game/edit-game.component';
 import { EditSingleGameComponent } from './component/edit-single-game/edit-single-game.component';
+import { CreateProcessorComponent } from './component/create-processor/create-processor.component';
+import { RemoveProcessorComponent } from './component/remove-processor/remove-processor.component';
+import { EditProcessorComponent } from './component/edit-processor/edit-processor.component';
+import { EditSingleProcessorComponent } from './component/edit-single-processor/edit-single-processor.component';
 
 const routes: Routes = [
+  {path: 'admin/create-processor', component: CreateProcessorComponent},
+  {path: 'admin/edit-processor/:id', component: EditSingleProcessorComponent},
+  {path: 'admin/edit-processor', component: EditProcessorComponent},
+  {path: 'admin/remove-processor', component: RemoveProcessorComponent},
   {path: 'admin/remove-game', component: RemoveGameComponent},
   {path: 'admin/create-game', component: CreateGameComponent},
   {path: 'admin/edit-game/:id', component: EditSingleGameComponent},
@@ -66,7 +74,11 @@ const routes: Routes = [
     CreateGameComponent,
     RemoveGameComponent,
     EditGameComponent,
-    EditSingleGameComponent
+    EditSingleGameComponent,
+    CreateProcessorComponent,
+    RemoveProcessorComponent,
+    EditProcessorComponent,
+    EditSingleProcessorComponent
   ],
   imports: [
     FormsModule,

@@ -36,25 +36,18 @@ export class GameService {
 
   addGame(game: GameDto): Observable<GameDto> {
 
-    const body = JSON.stringify(game);
-    console.log(body)
-
-
-    return this.httpClient.post<GameDto>(this.baseUrl, body, {
+    return this.httpClient.post<GameDto>(this.baseUrl, game, {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     });
   }
 
   removeGame(gameToRemoveId: number) {
     const deleteUrl = `${this.baseUrl}/${gameToRemoveId}`
-    console.log(gameToRemoveId)
     this.httpClient.delete(deleteUrl).subscribe(data => console.log(data));
   }
 
   editGame(gameEditId: number, game: GameDto) {
-    const editUrl = `${this.baseUrl}/${gameEditId}`
-    console.log(editUrl);
-    console.log(game);
+    const editUrl = `${this.baseUrl}/${gameEditId}`;
     this.httpClient.put(editUrl, game, {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }).subscribe();

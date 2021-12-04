@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Processor} from "../model/processor";
+import {ProcessorDto} from "../model/processor-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,25 @@ export class ProcessorService {
     return this.httpClient.get<GetResponseProcessors>(searchUrl);
   }
 
-  getProcessor(procesorId: number) {
-    const searchUrl = `${this.baseUrl}/${procesorId}`
+  getProcessor(processorId: number) {
+    const searchUrl = `${this.baseUrl}/${processorId}`
 
     return this.httpClient.get<Processor>(searchUrl);
   }
 
+  addProcessor(processor: ProcessorDto) {
+    return this.httpClient.post<ProcessorDto>(this.baseUrl, processor);
+  }
+
+  editProcessor(processorEditId: number, processor: ProcessorDto) {
+    const editUrl = `${this.baseUrl}/${processorEditId}`;
+    this.httpClient.put(editUrl, processor).subscribe();
+  }
+
+  removeProcessor(processorId: number) {
+    const deleteUrl = `${this.baseUrl}/${processorId}`
+    this.httpClient.delete(deleteUrl).subscribe();
+  }
 }
 
 interface GetResponseProcessors{

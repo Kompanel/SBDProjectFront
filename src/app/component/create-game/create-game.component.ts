@@ -43,7 +43,7 @@ export class CreateGameComponent implements OnInit {
       game.imageUrl = this.newGameFormGroup.get('imageUrl')?.value;
     }
 
-    this.gameService.addGame(game).subscribe(data => console.log(data))
+    this.gameService.addGame(game).subscribe();
   }
 
   gamePlatformList() {
