@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {GraphicsCardService} from "../../service/graphics-card.service";
 import {GraphicsCardDto} from "../../model/graphics-card-dto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-graphics-card',
@@ -14,7 +15,8 @@ export class CreateGraphicsCardComponent implements OnInit {
   newGraphicsCardFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private graphicsCardService: GraphicsCardService) { }
+              private graphicsCardService: GraphicsCardService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.newGraphicsCardFormGroup = this.formBuilder.group({
@@ -43,6 +45,7 @@ export class CreateGraphicsCardComponent implements OnInit {
     }
 
     this.graphicsCardService.addGraphicsCard(graphicsCard).subscribe();
+    this.router.navigateByUrl("/admin");
   }
 
 }

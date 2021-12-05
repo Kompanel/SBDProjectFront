@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProcessorService} from "../../service/processor.service";
 import {ProcessorDto} from "../../model/processor-dto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-processor',
@@ -14,7 +15,8 @@ export class CreateProcessorComponent implements OnInit {
   newProcessorFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private processorService: ProcessorService) { }
+              private processorService: ProcessorService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.newProcessorFormGroup = this.formBuilder.group({
@@ -44,6 +46,7 @@ export class CreateProcessorComponent implements OnInit {
     processor.cores = this.newProcessorFormGroup.get('cores')?.value;
     processor.threads = this.newProcessorFormGroup.get('threads')?.value;
     processor.cache = this.newProcessorFormGroup.get('cache')?.value;
+    processor.clockFrequency = this.newProcessorFormGroup.get('clockFrequency')?.value;
     processor.processorPremiere = this.newProcessorFormGroup.get('processorPremiere')?.value;
     processor.integratedGraphics = this.newProcessorFormGroup.get('integratedGraphics')?.value == true;
     processor.unlockedMultiplier = this.newProcessorFormGroup.get('unlockedMultiplier')?.value == true;
@@ -53,6 +56,7 @@ export class CreateProcessorComponent implements OnInit {
     processor.imageUrl = this.newProcessorFormGroup.get('imageUrl')?.value;
 
     this.processorService.addProcessor(processor).subscribe();
+    this.router.navigateByUrl("/admin");
   }
 
 }

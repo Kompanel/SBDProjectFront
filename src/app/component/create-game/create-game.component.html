@@ -1,62 +1,53 @@
-<div class="main-content page-m">
+<div class="main-content page-m" style="padding: 20px">
   <div class="section-content section-content-p30">
     <div class="container-fluid">
 
       <form [formGroup]="newGameFormGroup" (ngSubmit)="onSubmit()" >
 
-        <div class="form-area">
+        <div class="form-area" style="margin: 0 auto; width: 200px">
           <h3>Create New Game</h3>
+          <br>
 
           <div class="row">
-            <div class="col-md-2"><label>Game Name</label></div>
-            <div class="col-md-9">
               <div class="input-space">
-                <input formControlName="gameName" type="text">
+                Game Name
+                <input formControlName="gameName" type="text" style="margin-left: 10px">
               </div>
-            </div>
           </div>
 
 
         <div class="row">
-          <div class="col-md-2"><label>Game Date</label></div>
-          <div class="col-md-9">
             <div class="input-space">
-              <input formControlName="gamePremiere" type="date">
+              Game Date
+              <input formControlName="gamePremiere" type="date" style="margin: 10px">
             </div>
-          </div>
         </div>
 
 
         <div class="row">
-          <div class="col-md-2"><label>Game Platform</label></div>
-          <div class="col-md-9">
             <div class="input-space">
-              <select formControlName="gamePlatform">
+              Game Platform
+              <select formControlName="gamePlatform" style="margin: 10px">
                 <option *ngFor="let gamePlatform of gamePlatforms" [ngValue]="gamePlatform">
                   {{ gamePlatform.platformName }}
                 </option>
               </select>
 
             </div>
-          </div>
         </div>
 
         <div class="row">
-          <div class="col-md-2"><label>Game Price</label></div>
-          <div class="col-md-9">
             <div class="input-space">
-              <input formControlName="gamePrice" type="number">
+              Game Price
+              <input formControlName="gamePrice" type="number" style="margin: 10px">
             </div>
-          </div>
         </div>
 
         <div class="row">
-          <div class="col-md-2"> <label>ImageUrl</label></div>
-          <div class="col-md-9">
             <div class="input-space">
-              <input formControlName="imageUrl" type="text">
+              ImageUrl
+              <input formControlName="imageUrl" type="text" style="margin: 10px">
             </div>
-          </div>
         </div>
 
         </div>

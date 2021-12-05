@@ -33,8 +33,16 @@ import { CreateGraphicsCardComponent } from './component/create-graphics-card/cr
 import { EditGraphicsCardComponent } from './component/edit-graphics-card/edit-graphics-card.component';
 import { EditSingleGraphicsCardComponent } from './component/edit-single-graphics-card/edit-single-graphics-card.component';
 import { RemoveGraphicsCardComponent } from './component/remove-graphics-card/remove-graphics-card.component';
+import { CompareProcessorsListComponent } from './component/compare-processors-list/compare-processors-list.component';
+import {CompareProcessorsComponent} from "./component/compare-processors/compare-processors.component";
+import { CompareGraphicsCardListComponent } from './component/compare-graphics-card-list/compare-graphics-card-list.component';
+import { CompareGraphicsCardComponent } from './component/compare-graphics-card/compare-graphics-card.component';
 
 const routes: Routes = [
+  {path: 'compare-graphics-card/:id1/:id2', component: CompareGraphicsCardComponent},
+  {path: 'compare-graphics-card', component: CompareGraphicsCardListComponent},
+  {path: 'compare-processors/:id1/:id2', component: CompareProcessorsComponent},
+  {path: 'compare-processors', component: CompareProcessorsListComponent},
   {path: 'admin/create-graphics-card', component: CreateGraphicsCardComponent},
   {path: 'admin/edit-graphics-card/:id', component: EditSingleGraphicsCardComponent},
   {path: 'admin/edit-graphics-card', component: EditGraphicsCardComponent},
@@ -90,7 +98,11 @@ const routes: Routes = [
     CreateGraphicsCardComponent,
     EditGraphicsCardComponent,
     EditSingleGraphicsCardComponent,
-    RemoveGraphicsCardComponent
+    RemoveGraphicsCardComponent,
+    CompareProcessorsListComponent,
+    CompareProcessorsComponent,
+    CompareGraphicsCardListComponent,
+    CompareGraphicsCardComponent
   ],
   imports: [
     FormsModule,

@@ -2,136 +2,109 @@
   <div class="section-content section-content-p30">
     <div class="container-fluid">
 
-      <form [formGroup]="newProcessorFormGroup" (ngSubmit)="onSubmit()" >
+      <form [formGroup]="newProcessorFormGroup" (ngSubmit)="onSubmit()">
 
-        <div class="form-area">
+        <div class="form-area" style="margin: 0 auto; width: 200px">
           <h3>Create New Processor</h3>
 
           <div class="row">
-            <div class="col-md-2"><label>Processor Name</label></div>
-            <div class="col-md-9">
+
+            <div class="input-space">
+              Processor Name
+              <input formControlName="processorModel" type="text">
+            </div>
+          </div>
+
+          <div class="row">
               <div class="input-space">
-                <input formControlName="processorModel" type="text">
+                Producer
+                <input formControlName="producer" type="text">
               </div>
+          </div>
+
+          <div class="row">
+              <div class="input-space">
+                Lithography
+                <input formControlName="lithography" type="number">
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="input-space">
+                Cores
+                <input formControlName="cores" type="number">
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="input-space">
+                threads
+                <input formControlName="threads" type="number">
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="input-space">
+                Clock Frequency
+                <input formControlName="clockFrequency" type="number">
             </div>
           </div>
 
-        <div class="row">
-          <div class="col-md-2"> <label>producer</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="producer" type="text">
-            </div>
+          <div class="row">
+              <div class="input-space">
+                cache
+                <input formControlName="cache" type="number">
+              </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-2"> <label>lithography</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="lithography" type="number">
-            </div>
+          <div class="row">
+              <div class="input-space">
+                Processor Premiere
+                <input formControlName="processorPremiere" type="date">
+              </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-2"> <label>cores</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="cores" type="number">
-            </div>
+          <div class="row">
+              <div class="input-space">
+                Integrated Graphics
+                <input formControlName="integratedGraphics" type="checkbox">
+              </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-2"> <label>threads</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="threads" type="number">
-            </div>
+          <div class="row">
+              <div class="input-space">
+                Unlocked Multiplier
+                <input formControlName="unlockedMultiplier" type="checkbox">
+              </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-2"> <label>clockFrequency</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="clockFrequency" type="number">
-            </div>
+          <div class="row">
+              <div class="input-space">
+                Power Consumption
+                <input formControlName="powerConsumption" type="number">
+              </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-2"> <label>cache</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="cache" type="number">
-            </div>
+          <div class="row">
+              <div class="input-space">
+                Processor Price
+                <input formControlName="processorPrice" type="number">
+              </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-2"> <label>processorPremiere</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="processorPremiere" type="date">
-            </div>
+          <div class="row">
+              <div class="input-space">
+                Benchmark Value
+                <input formControlName="benchmarkValue" type="number">
+              </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-2"> <label>integratedGraphics</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="integratedGraphics" type="checkbox">
-            </div>
+          <div class="row">
+              <div class="input-space">
+                ImageUrl
+                <input formControlName="imageUrl" type="text">
+              </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-2"> <label>unlockedMultiplier</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="unlockedMultiplier" type="checkbox">
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-2"> <label>powerConsumption</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="powerConsumption" type="number">
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-2"> <label>processorPrice</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="processorPrice" type="number">
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-2"> <label>benchmarkValue</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="benchmarkValue" type="number">
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-2"> <label>ImageUrl</label></div>
-          <div class="col-md-9">
-            <div class="input-space">
-              <input formControlName="imageUrl" type="text">
-            </div>
-          </div>
-        </div>
 
         </div>
 

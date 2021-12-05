@@ -1,5 +1,3 @@
-import {Game} from "./game";
-import {HardwareRequirement} from "./hardware-requirement";
 
 export class GraphicsCard {
 
@@ -29,6 +27,9 @@ export class GraphicsCard {
 
   // @ts-ignore
   imageUrl: string;
+
+  // @ts-ignore
+  cardProducer: string;
 
 
 }

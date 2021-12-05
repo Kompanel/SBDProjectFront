@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Processor} from "../../model/processor";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProcessorService} from "../../service/processor.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-remove-processor',
@@ -17,7 +18,8 @@ export class RemoveProcessorComponent implements OnInit {
   removeProcessorFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private processorService: ProcessorService) {
+              private processorService: ProcessorService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class RemoveProcessorComponent implements OnInit {
   onSubmit(){
     this.processorToRemove = this.removeProcessorFormGroup.get('processor')?.value;
     this.processorService.removeProcessor(this.processorToRemove.processorId);
+    this.router.navigateByUrl("/admin");
   }
 
   processorList() {

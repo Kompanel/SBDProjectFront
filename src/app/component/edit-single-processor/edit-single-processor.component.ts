@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProcessorService} from "../../service/processor.service";
 import {ProcessorDto} from "../../model/processor-dto";
 
@@ -17,7 +17,8 @@ export class EditSingleProcessorComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private processorService: ProcessorService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.processorEditId = Number(this.route.snapshot.paramMap.get('id'));
@@ -48,6 +49,7 @@ export class EditSingleProcessorComponent implements OnInit {
     processor.cores = this.editProcessorForm.get('cores')?.value;
     processor.threads = this.editProcessorForm.get('threads')?.value;
     processor.cache = this.editProcessorForm.get('cache')?.value;
+    processor.clockFrequency = this.editProcessorForm.get('clockFrequency')?.value;
     processor.processorPremiere = this.editProcessorForm.get('processorPremiere')?.value;
     processor.integratedGraphics = this.editProcessorForm.get('integratedGraphics')?.value == true;
     processor.unlockedMultiplier = this.editProcessorForm.get('unlockedMultiplier')?.value == true;
@@ -57,6 +59,7 @@ export class EditSingleProcessorComponent implements OnInit {
     processor.imageUrl = this.editProcessorForm.get('imageUrl')?.value;
 
     this.processorService.editProcessor(this.processorEditId, processor);
+    this.router.navigateByUrl("/admin");
   }
 
 }

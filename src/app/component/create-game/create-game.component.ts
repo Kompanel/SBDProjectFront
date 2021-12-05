@@ -5,6 +5,7 @@ import {GamePlatform} from "../../model/game-platform";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Game} from "../../model/game";
 import {GameDto} from "../../model/game-dto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-game',
@@ -19,7 +20,8 @@ export class CreateGameComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private gameService: GameService,
-              private gamePlatformService: GamePlatformService) {
+              private gamePlatformService: GamePlatformService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -42,8 +44,8 @@ export class CreateGameComponent implements OnInit {
     if(this.newGameFormGroup.get('imageUrl')?.value != ''){
       game.imageUrl = this.newGameFormGroup.get('imageUrl')?.value;
     }
-
     this.gameService.addGame(game).subscribe();
+    this.router.navigateByUrl("/admin");
   }
 
   gamePlatformList() {

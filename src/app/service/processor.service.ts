@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Processor} from "../model/processor";
 import {ProcessorDto} from "../model/processor-dto";
+import {GameDto} from "../model/game-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +27,9 @@ export class ProcessorService {
     return this.httpClient.get<Processor>(searchUrl);
   }
 
-  addProcessor(processor: ProcessorDto) {
-    return this.httpClient.post<ProcessorDto>(this.baseUrl, processor);
+  addProcessor(processor: ProcessorDto): Observable<ProcessorDto> {
+    return this.httpClient.post<ProcessorDto>(this.baseUrl, processor, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
 
   editProcessor(processorEditId: number, processor: ProcessorDto) {

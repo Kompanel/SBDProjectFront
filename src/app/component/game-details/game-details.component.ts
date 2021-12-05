@@ -25,6 +25,7 @@ export class GameDetailsComponent implements OnInit {
 
     this.gameService.getGame(gameId).subscribe(data =>{
       this.game = data;
+      console.log(data);
     });
 
   }

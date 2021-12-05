@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Game} from "../../model/game";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {GameService} from "../../service/game.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-remove-game',
@@ -17,7 +18,8 @@ export class RemoveGameComponent implements OnInit {
   removeGameFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private gameService: GameService) { }
+              private gameService: GameService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.gameService.getGamesList().subscribe(this.gameList());
@@ -29,6 +31,7 @@ export class RemoveGameComponent implements OnInit {
   onSubmit() {
     this.gameToRemove = this.removeGameFormGroup.get('game')?.value;
     this.gameService.removeGame(this.gameToRemove.id);
+    this.router.navigateByUrl("/admin");
   }
 
   gameList() {

@@ -10,15 +10,21 @@
   <tbody>
   <tr>
     <th scope="row">Minimal</th>
-    <td>{{minimalProcessor}}</td>
-    <td>{{minimalCardGraphics}}</td>
-    <td>{{minimalRam}}</td>
+    <td *ngIf="minimalProcessor">✔</td>
+    <td *ngIf="!minimalProcessor">❌</td>
+    <td *ngIf="minimalCardGraphics">✔</td>
+    <td *ngIf="!minimalCardGraphics">❌</td>
+    <td *ngIf="minimalRam">✔</td>
+    <td *ngIf="!minimalRam">❌</td>
   </tr>
   <tr>
     <th scope="row">Recommended</th>
-    <td>{{recommendedProcessor}}</td>
-    <td>{{recommendedCardGraphics}}</td>
-    <td>{{recommendedRam}}</td>
+    <td *ngIf="recommendedProcessor">✔</td>
+    <td *ngIf="!recommendedProcessor">❌</td>
+    <td *ngIf="recommendedCardGraphics">✔</td>
+    <td *ngIf="!recommendedCardGraphics">❌</td>
+    <td *ngIf="recommendedRam">✔</td>
+    <td *ngIf="!recommendedRam">❌</td>
   </tr>
   </tbody>
 

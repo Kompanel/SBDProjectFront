@@ -1,0 +1,72 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col">{{processor1.processorModel}}</th>
+    <th scope="col">{{processor2.processorModel}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">producer</th>
+    <td>{{processor1.producer}}</td>
+    <td>{{processor2.producer}}</td>
+  </tr>
+  <tr>
+    <th scope="row">lithography</th>
+    <td>{{processor1.lithography}}nm</td>
+    <td>{{processor2.lithography}}nm</td>
+  </tr>
+  <tr>
+    <th scope="row">cores</th>
+    <td>{{processor1.cores}}</td>
+    <td>{{processor2.cores}}</td>
+  </tr>
+  <tr>
+    <th scope="row">threads</th>
+    <td>{{processor1.threads}}</td>
+    <td>{{processor2.threads}}</td>
+  </tr>
+  <tr>
+    <th scope="row">clockFrequency</th>
+    <td>{{processor1.clockFrequency}}MHz</td>
+    <td>{{processor2.clockFrequency}}MHz</td>
+  </tr>
+  <tr>
+    <th scope="row">processorPremiere</th>
+    <td>{{processor1.processorPremiere}}</td>
+    <td>{{processor2.processorPremiere}}</td>
+  </tr>
+  <tr>
+    <th scope="row">integratedGraphics</th>
+    <td *ngIf="processor1.integratedGraphics">✔</td>
+    <td *ngIf="!processor1.integratedGraphics">❌</td>
+    <td *ngIf="processor2.integratedGraphics">✔</td>
+    <td *ngIf="!processor2.integratedGraphics">❌</td>
+  </tr>
+  <tr>
+    <th scope="row">unlockedMultiplier</th>
+    <td *ngIf="processor1.unlockedMultiplier">✔</td>
+    <td *ngIf="!processor1.unlockedMultiplier">❌</td>
+    <td *ngIf="processor2.unlockedMultiplier">✔</td>
+    <td *ngIf="!processor2.unlockedMultiplier">❌</td>
+  </tr>
+  <tr>
+    <th scope="row">powerConsumption</th>
+    <td>{{processor1.powerConsumption}}W</td>
+    <td>{{processor2.powerConsumption}}W</td>
+  </tr>
+  <tr>
+    <th scope="row">processorPrice</th>
+    <td>{{processor1.processorPrice}}PLN</td>
+    <td>{{processor2.processorPrice}}PLN</td>
+  </tr>
+
+  <tr>
+    <th scope="row">benchmarkValue</th>
+    <td>{{processor1.benchmarkValue}}</td>
+    <td>{{processor2.benchmarkValue}}</td>
+  </tr>
+
+  </tbody>
+</table>

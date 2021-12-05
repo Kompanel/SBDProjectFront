@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {GraphicsCardService} from "../../service/graphics-card.service";
 import {GraphicsCardDto} from "../../model/graphics-card-dto";
 
@@ -17,7 +17,8 @@ export class EditSingleGraphicsCardComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private graphicsCardService: GraphicsCardService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.graphicsCardEditId = Number(this.route.snapshot.paramMap.get('id'));
@@ -46,9 +47,8 @@ export class EditSingleGraphicsCardComponent implements OnInit {
       graphicsCard.imageUrl = this.editGraphicsCardForm.get('imageUrl')?.value;
     }
 
-    console.log(this.graphicsCardEditId)
-    console.log(graphicsCard)
     this.graphicsCardService.editGraphicsCard(this.graphicsCardEditId, graphicsCard);
+    this.router.navigateByUrl("/admin");
   }
 
 }

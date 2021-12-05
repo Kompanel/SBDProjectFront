@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {GameService} from "../../service/game.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {GameDto} from "../../model/game-dto";
@@ -21,7 +21,8 @@ export class EditSingleGameComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private gameService: GameService,
               private formBuilder: FormBuilder,
-              private gamePlatformService: GamePlatformService) { }
+              private gamePlatformService: GamePlatformService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.gamePlatformService.getGamePlatformsList().subscribe(this.gamePlatformList());
@@ -45,6 +46,7 @@ export class EditSingleGameComponent implements OnInit {
       game.imageUrl = this.editGameForm.get('imageUrl')?.value;
     }
     this.gameService.editGame(this.gameEditId, game);
+    this.router.navigateByUrl("/admin");
   }
 
   gamePlatformList() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {GraphicsCard} from "../../model/graphics-card";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {GraphicsCardService} from "../../service/graphics-card.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-remove-graphics-card',
@@ -17,7 +18,8 @@ export class RemoveGraphicsCardComponent implements OnInit {
   removeGraphicsCardFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private graphicsCardService: GraphicsCardService) { }
+              private graphicsCardService: GraphicsCardService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.graphicsCardService.getGraphicsCardsList().subscribe(this.graphicsCardList());
@@ -29,6 +31,7 @@ export class RemoveGraphicsCardComponent implements OnInit {
   onSubmit() {
     this.graphicsCardToRemove = this.removeGraphicsCardFormGroup.get('graphicsCard')?.value;
     this.graphicsCardService.removeGraphicsCard(this.graphicsCardToRemove.cardId);
+    this.router.navigateByUrl("/admin");
   }
 
   graphicsCardList() {

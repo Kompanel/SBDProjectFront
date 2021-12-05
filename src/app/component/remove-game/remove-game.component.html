@@ -4,23 +4,21 @@
 
       <form [formGroup]="removeGameFormGroup" (ngSubmit)="onSubmit()">
 
-        <div class="form-area">
+        <div class="form-area" style="margin: 0 auto; width: 300px">
           <h3>Remove Game</h3>
 
           <div class="row">
-            <div class="col-md-2"><label>Game Name</label></div>
-            <div class="col-md-9">
               <div class="input-space">
+                Game Name
                 <select formControlName="game">
                   <option *ngFor="let game of games" [ngValue]="game">
                     {{ game.gameName }}
                   </option>
                 </select>
-
-              </div>
             </div>
           </div>
 
+          <br>
 
           <!-- submit button-->
           <div class="text-center">

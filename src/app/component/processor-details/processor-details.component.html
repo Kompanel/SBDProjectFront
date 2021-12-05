@@ -1,22 +1,23 @@
-<div class="detail-section">
+<div class="detail-section" style="padding: 20px">
   <div class="container-fluid">
 
     <img src="{{ processor.imageUrl }}" height="300" width="400" class="img-fluid">
 
     <h3>{{ processor.processorModel }}</h3>
+    <p>Made by: {{processor.producer}}</p>
     <div class="price">{{ processor.processorPrice }}PLN</div>
     <hr>
     <h1>Description</h1>
     <p>Processor premiere: {{processor.processorPremiere}}</p>
-    <p>Lithography: {{processor.lithography}}</p>
+    <p>Lithography: {{processor.lithography}}nm</p>
     <p>Cores: {{processor.cores}}</p>
     <p>Threads: {{processor.threads}}</p>
-    <p>Clock frequency: {{processor.clockFrequency}}</p>
-    <p>Power Consumption: {{processor.powerConsumption}}</p>
+    <p>Clock frequency: {{processor.clockFrequency}}MHz</p>
+    <p>Power Consumption: {{processor.powerConsumption}}W</p>
     <p *ngIf="processor.integratedGraphics">Integrated graphics</p>
     <p *ngIf="processor.unlockedMultiplier">Multiplayer unlocked</p>
     <p>Benchmark value: {{processor.benchmarkValue}}</p>
 
-    <a routerLink="/graphics-cards" class="mt-5">Back to Processors List</a>
+    <a routerLink="/processors" class="mt-5">Back to Processors List</a>
   </div>
 </div>

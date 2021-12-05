@@ -4,82 +4,68 @@
 
       <form [formGroup]="newGraphicsCardFormGroup" (ngSubmit)="onSubmit()" >
 
-        <div class="form-area">
+        <div class="form-area" style="margin: 0 auto; width: 200px">
           <h3>Create New Graphics Card</h3>
 
           <div class="row">
-            <div class="col-md-2"><label>Graphics Card Name</label></div>
-            <div class="col-md-9">
               <div class="input-space">
+                Graphics Card Name
                 <input formControlName="cardModel" type="text">
               </div>
-            </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2"><label>memory</label></div>
-            <div class="col-md-9">
               <div class="input-space">
+                Memory
                 <input formControlName="memory" type="number">
               </div>
-            </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2"><label>memoryType</label></div>
-            <div class="col-md-9">
               <div class="input-space">
+                Memory Type
                 <input formControlName="memoryType" type="text">
               </div>
-            </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2"><label>powerConsumption</label></div>
-            <div class="col-md-9">
               <div class="input-space">
+                Power Consumption
                 <input formControlName="powerConsumption" type="number">
               </div>
-            </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2"><label>premiereDate</label></div>
-            <div class="col-md-9">
               <div class="input-space">
+                Premiere Date
                 <input formControlName="premiereDate" type="date">
               </div>
-            </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2"><label>cardPrice</label></div>
-            <div class="col-md-9">
               <div class="input-space">
+                Card Price
                 <input formControlName="cardPrice" type="number">
               </div>
-            </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2"><label>benchmarkValue</label></div>
-            <div class="col-md-9">
               <div class="input-space">
+                Benchmark Value
                 <input formControlName="benchmarkValue" type="number">
               </div>
-            </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2"><label>imageUrl</label></div>
-            <div class="col-md-9">
               <div class="input-space">
+                imageUrl
                 <input formControlName="imageUrl" type="text">
-              </div>
             </div>
           </div>
 
         </div>
+
+        <br>
 
         <!-- submit button-->
         <div class="text-center">

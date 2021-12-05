@@ -11,22 +11,17 @@
     <p>Game platform: {{game.gamePlatform.platformName}}</p>
     <p>Made by: {{game.gameCreations[0].developer.developerName}}</p>
 
-    <br>
-    <h4 *ngIf="game.hardwareRequirements[0].requirementType == 'Rekomedowane'">Recommended</h4>
-    <h4 *ngIf="game.hardwareRequirements[0].requirementType == 'Minimalne'">Minimal</h4>
-    <p>DiscSpace: {{game.hardwareRequirements[0].discSpace}}GB</p>
-    <p>Graphics card: {{game.hardwareRequirements[0].graphicsCard.cardModel}}</p>
-    <p>Processor: {{game.hardwareRequirements[0].processor.processorModel}}</p>
-    <p>Ram: {{game.hardwareRequirements[0].ram}}GB</p>
-    <br>
 
-
-    <h4 *ngIf="game.hardwareRequirements[1].requirementType == 'Rekomedowane'">Recommended</h4>
-    <h4 *ngIf="game.hardwareRequirements[1].requirementType == 'Minimalne'">Minimal</h4>
-    <p>DiscSpace: {{game.hardwareRequirements[1].discSpace}}GB</p>
-    <p>Graphics card: {{game.hardwareRequirements[1].graphicsCard.cardModel}}</p>
-    <p>Processor: {{game.hardwareRequirements[1].processor.processorModel}}</p>
-    <p>Ram: {{game.hardwareRequirements[1].ram}}GB</p>
+    <br>
+    <div *ngFor="let hardwareRequirement of game.hardwareRequirements">
+      <h4 *ngIf="hardwareRequirement.requirementType == 'Rekomendowane'">Recommended</h4>
+      <h4 *ngIf="hardwareRequirement.requirementType == 'Minimalne'">Minimal</h4>
+      <p>DiscSpace: {{hardwareRequirement.discSpace}}GB</p>
+      <p *ngIf="hardwareRequirement.graphicsCard != null">Graphics card: {{hardwareRequirement.graphicsCard.cardProducer}} {{hardwareRequirement.graphicsCard.cardModel}}</p>
+      <p *ngIf="hardwareRequirement.processor != null">Processor: {{hardwareRequirement.processor.producer}} {{hardwareRequirement.processor.processorModel}}</p>
+      <p *ngIf="hardwareRequirement.ram != null">Ram: {{hardwareRequirement.ram}}GB</p>
+    </div>
+    <br>
 
     <br>
     <hr>
@@ -35,8 +30,7 @@
     <h5 *ngIf="game.gameCreations.length > 1">Engines:</h5>
     <h5 *ngIf="game.gameCreations.length == 1">Engine:</h5>
     <div *ngFor="let gameCreation of game.gameCreations">
-      <p>Engine Name and version: {{gameCreation.engine.engineName}}
-        , {{gameCreation.engine.engineVersion}}</p>
+      <p>Engine Name and version: {{gameCreation.engine.engineName}}, {{gameCreation.engine.engineVersion}}</p>
       <p>Programming Language: {{gameCreation.engine.programmingLanguage.languageName}}</p>
       <br>
     </div>
