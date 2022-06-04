@@ -1,3 +1,6 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 .table-bordered td,.table-bordered th{
   border:1px solid #dee2e6
 }

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProcessorService} from "../../service/processor.service";
 import {ProcessorDto} from "../../model/processor-dto";
+import {Processor} from "../../model/processor";
 
 @Component({
   selector: 'app-edit-single-processor',
@@ -11,8 +12,7 @@ import {ProcessorDto} from "../../model/processor-dto";
 })
 export class EditSingleProcessorComponent implements OnInit {
 
-  // @ts-ignore
-  editProcessorForm: FormGroup;
+  editProcessorForm!: FormGroup;
   processorEditId: number = 0;
 
   constructor(private route: ActivatedRoute,
@@ -41,7 +41,7 @@ export class EditSingleProcessorComponent implements OnInit {
   }
 
   onSubmit() {
-    let processor = new ProcessorDto();
+    let processor: ProcessorDto = new ProcessorDto();
     processor.processorModel = this.editProcessorForm.get('processorModel')?.value;
     processor.producer = this.editProcessorForm.get('producer')?.value;
     processor.processorModel = this.editProcessorForm.get('processorModel')?.value;

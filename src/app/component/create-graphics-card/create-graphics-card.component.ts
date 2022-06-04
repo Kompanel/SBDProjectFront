@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {GraphicsCardService} from "../../service/graphics-card.service";
 import {GraphicsCardDto} from "../../model/graphics-card-dto";
 import {Router} from "@angular/router";
+import {GraphicsCard} from "../../model/graphics-card";
 
 @Component({
   selector: 'app-create-graphics-card',
@@ -11,8 +12,7 @@ import {Router} from "@angular/router";
 })
 export class CreateGraphicsCardComponent implements OnInit {
 
-  // @ts-ignore
-  newGraphicsCardFormGroup: FormGroup;
+  newGraphicsCardFormGroup!: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
               private graphicsCardService: GraphicsCardService,
@@ -32,7 +32,7 @@ export class CreateGraphicsCardComponent implements OnInit {
   }
 
   onSubmit() {
-    let graphicsCard = new GraphicsCardDto();
+    let graphicsCard: GraphicsCardDto = new GraphicsCardDto();
     graphicsCard.cardModel = this.newGraphicsCardFormGroup.get('cardModel')?.value;
     graphicsCard.memory = this.newGraphicsCardFormGroup.get('memory')?.value;
     graphicsCard.memoryType = this.newGraphicsCardFormGroup.get('memoryType')?.value;

@@ -19,14 +19,9 @@ export class GameListComponent implements OnInit {
 
   listGame() {
     this.gameService.getGamesList()
-      .subscribe(this.processResult())
-  }
-
-  processResult() {
-    // @ts-ignore
-    return data => {
-      this.games = data;
-    }
+      .subscribe(data =>{
+        this.games = data.content.games;
+      })
   }
 
 }

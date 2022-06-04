@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {GameDto} from "../../model/game-dto";
 import {GamePlatform} from "../../model/game-platform";
 import {GamePlatformService} from "../../service/game-platform.service";
+import {Game} from "../../model/game";
 
 @Component({
   selector: 'app-edit-single-game',
@@ -14,8 +15,7 @@ import {GamePlatformService} from "../../service/game-platform.service";
 export class EditSingleGameComponent implements OnInit {
 
   gamePlatforms: GamePlatform[] = [];
-  // @ts-ignore
-  editGameForm: FormGroup;
+  editGameForm!: FormGroup;
   gameEditId: number = 0;
 
   constructor(private route: ActivatedRoute,
@@ -25,7 +25,9 @@ export class EditSingleGameComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.gamePlatformService.getGamePlatformsList().subscribe(this.gamePlatformList());
+    this.gamePlatformService.getGamePlatformsList().subscribe(data => {
+      this.gamePlatforms = data.gamePlatforms;
+    });
     this.gameEditId = Number(this.route.snapshot.paramMap.get('id'));
     this.editGameForm = this.formBuilder.group({
       gameName: ['', Validators.required],
@@ -37,23 +39,16 @@ export class EditSingleGameComponent implements OnInit {
   }
 
   onSubmit() {
-    let game = new GameDto();
+    let game: GameDto = new GameDto();
     game.gameName = this.editGameForm.get('gameName')?.value;
     game.gamePremiere = this.editGameForm.get('gamePremiere')?.value;
-    game.gamePlatformId = this.editGameForm.get('gamePlatform')?.value.platformId;
+    game.gamePlatform = this.editGameForm.get('gamePlatform')?.value;
     game.gamePrice = this.editGameForm.get('gamePrice')?.value;
     if(this.editGameForm.get('imageUrl')?.value != ''){
       game.imageUrl = this.editGameForm.get('imageUrl')?.value;
     }
     this.gameService.editGame(this.gameEditId, game);
     this.router.navigateByUrl("/admin");
-  }
-
-  gamePlatformList() {
-    // @ts-ignore
-    return data => {
-      this.gamePlatforms = data;
-    }
   }
 
 }

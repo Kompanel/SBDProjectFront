@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProcessorService} from "../../service/processor.service";
 import {ProcessorDto} from "../../model/processor-dto";
 import {Router} from "@angular/router";
+import {Processor} from "../../model/processor";
 
 @Component({
   selector: 'app-create-processor',
@@ -11,8 +12,7 @@ import {Router} from "@angular/router";
 })
 export class CreateProcessorComponent implements OnInit {
 
-  // @ts-ignore
-  newProcessorFormGroup: FormGroup;
+  newProcessorFormGroup!: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
               private processorService: ProcessorService,
@@ -38,7 +38,7 @@ export class CreateProcessorComponent implements OnInit {
   }
 
   onSubmit() {
-    let processor = new ProcessorDto();
+    let processor: ProcessorDto = new ProcessorDto();
     processor.processorModel = this.newProcessorFormGroup.get('processorModel')?.value;
     processor.producer = this.newProcessorFormGroup.get('producer')?.value;
     processor.processorModel = this.newProcessorFormGroup.get('processorModel')?.value;

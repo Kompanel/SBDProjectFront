@@ -21,7 +21,9 @@ export class CompareProcessorsListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.processorService.getProcessorList().subscribe(this.processorList());
+    this.processorService.getProcessorList().subscribe(data =>{
+      this.processors = data.content.processors;
+    });
     this.compareProcessorFormGroup = this.formBuilder.group({
       processor1: ['', Validators.required],
       processor2: ['', Validators.required]
@@ -32,13 +34,6 @@ export class CompareProcessorsListComponent implements OnInit {
     this.processor1 = this.compareProcessorFormGroup.get('processor1')?.value;
     this.processor2 = this.compareProcessorFormGroup.get('processor2')?.value;
     this.router.navigateByUrl(`/compare-processors/${this.processor1.processorId}/${this.processor2.processorId}`);
-  }
-
-  processorList() {
-    // @ts-ignore
-    return data => {
-      this.processors = data;
-    }
   }
 
 }

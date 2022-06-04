@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {catchError, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {Game} from "../model/game";
 import {GameDto} from "../model/game-dto";
-
-
 
 @Injectable({
   providedIn: 'root'

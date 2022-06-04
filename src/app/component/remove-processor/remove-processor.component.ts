@@ -12,10 +12,8 @@ import {Router} from "@angular/router";
 export class RemoveProcessorComponent implements OnInit {
 
   processors: Processor[] = [];
-  // @ts-ignore
-  processorToRemove: Processor;
-  // @ts-ignore
-  removeProcessorFormGroup: FormGroup;
+  processorToRemove: Processor = new Processor();
+  removeProcessorFormGroup!: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
               private processorService: ProcessorService,
@@ -23,7 +21,9 @@ export class RemoveProcessorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.processorService.getProcessorList().subscribe(this.processorList());
+    this.processorService.getProcessorList().subscribe(data =>{
+      this.processors = data.content.processors
+    });
     this.removeProcessorFormGroup = this.formBuilder.group({
       processor: ['', Validators.required]
     });
@@ -35,11 +35,5 @@ export class RemoveProcessorComponent implements OnInit {
     this.router.navigateByUrl("/admin");
   }
 
-  processorList() {
-    // @ts-ignore
-    return data => {
-      this.processors = data;
-    }
-  }
 
 }

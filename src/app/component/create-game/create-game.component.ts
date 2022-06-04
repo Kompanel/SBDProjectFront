@@ -39,7 +39,7 @@ export class CreateGameComponent implements OnInit {
     let game = new GameDto();
     game.gameName = this.newGameFormGroup.get('gameName')?.value;
     game.gamePremiere = this.newGameFormGroup.get('gamePremiere')?.value;
-    game.gamePlatformId = this.newGameFormGroup.get('gamePlatform')?.value.platformId;
+    game.gamePlatform = this.newGameFormGroup.get('gamePlatform')?.value;
     game.gamePrice = this.newGameFormGroup.get('gamePrice')?.value;
     if(this.newGameFormGroup.get('imageUrl')?.value != ''){
       game.imageUrl = this.newGameFormGroup.get('imageUrl')?.value;

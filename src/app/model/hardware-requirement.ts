@@ -1,23 +1,70 @@
 import {Processor} from "./processor";
+import {GraphicsCard} from "./graphics-card";
 
 export class HardwareRequirement {
 
-  // @ts-ignore
-  id: number;
+  private _id: number;
+  private _discSpace: number;
+  private _ram: number;
+  private _requirementType: string;
+  private _processor: Processor;
+  private _graphicsCard: GraphicsCard;
 
-  // @ts-ignore
-  discSpace: number;
+  constructor() {
+    this._id = 0;
+    this._discSpace = 0;
+    this._ram = 0;
+    this._requirementType = '';
+    this._processor = new Processor();
+    this._graphicsCard = new GraphicsCard();
+  }
 
-  // @ts-ignore
-  ram: number;
 
-  // @ts-ignore
-  requirementType: string;
+  get id(): number {
+    return this._id;
+  }
 
-  // @ts-ignore
-  processor: Processor;
+  set id(value: number) {
+    this._id = value;
+  }
 
-  // @ts-ignore
-  graphicsCard: GraphicsCard;
+  get discSpace(): number {
+    return this._discSpace;
+  }
 
+  set discSpace(value: number) {
+    this._discSpace = value;
+  }
+
+  get ram(): number {
+    return this._ram;
+  }
+
+  set ram(value: number) {
+    this._ram = value;
+  }
+
+  get requirementType(): string {
+    return this._requirementType;
+  }
+
+  set requirementType(value: string) {
+    this._requirementType = value;
+  }
+
+  get processor(): Processor {
+    return this._processor;
+  }
+
+  set processor(value: Processor) {
+    this._processor = value;
+  }
+
+  get graphicsCard(): GraphicsCard {
+    return this._graphicsCard;
+  }
+
+  set graphicsCard(value: GraphicsCard) {
+    this._graphicsCard = value;
+  }
 }

@@ -23,24 +23,13 @@ export class CompareProcessorsComponent implements OnInit {
     this.processor1Id = Number(this.route.snapshot.paramMap.get('id1'));
     this.processor2Id = Number(this.route.snapshot.paramMap.get('id2'));
 
-    this.processorService.getProcessor(this.processor1Id).subscribe(this.getProcessor1());
-    this.processorService.getProcessor(this.processor2Id).subscribe(this.getProcessor2());
-
-  }
-
-  getProcessor1() {
-    // @ts-ignore
-    return data => {
+    this.processorService.getProcessor(this.processor1Id).subscribe(data =>{
       this.processor1 = data;
-    }
-  }
-
-  getProcessor2() {
-    // @ts-ignore
-    return data => {
+    });
+    this.processorService.getProcessor(this.processor2Id).subscribe(data =>{
       this.processor2 = data;
-    }
-  }
+    });
 
+  }
 
 }

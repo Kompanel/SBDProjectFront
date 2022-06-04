@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Game} from "../../model/game";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {GameService} from "../../service/game.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-edit-game',
@@ -12,10 +12,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class EditGameComponent implements OnInit {
 
   games: Game[] = [];
-  // @ts-ignore
-  gameToEdit: Game;
-  // @ts-ignore
-  editGameForm: FormGroup;
+  gameToEdit: Game = new Game();
+  editGameForm!: FormGroup;
 
 
   constructor(private formBuilder: FormBuilder,
@@ -23,7 +21,9 @@ export class EditGameComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.gameService.getGamesList().subscribe(this.gameList());
+    this.gameService.getGamesList().subscribe(data => {
+      this.games = data.content.games;
+    });
     this.editGameForm = this.formBuilder.group({
       game: ['', Validators.required]
     });
@@ -34,11 +34,5 @@ export class EditGameComponent implements OnInit {
     this.router.navigateByUrl(`admin/edit-game/${this.gameToEdit.id}`);
   }
 
-  gameList() {
-    // @ts-ignore
-    return data => {
-      this.games = data;
-    }
-  }
 
 }

@@ -14,7 +14,7 @@ export class GameRunService {
   getWillItRunResponse(game: number, processor: number, graphicsCard: number, ram: number): Observable<GetResponseWillItRun> {
     const searchUrl = `${this.baseUrl}?gameId=${game}&processorId=${processor}&cardId=${graphicsCard}&ram=${ram}`;
 
-    console.log(searchUrl);
+    console.log(searchUrl)
 
     return this.httpClient.get<GetResponseWillItRun>(searchUrl);
   }

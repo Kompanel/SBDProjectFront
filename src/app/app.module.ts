@@ -37,6 +37,7 @@ import { CompareProcessorsListComponent } from './component/compare-processors-l
 import {CompareProcessorsComponent} from "./component/compare-processors/compare-processors.component";
 import { CompareGraphicsCardListComponent } from './component/compare-graphics-card-list/compare-graphics-card-list.component';
 import { CompareGraphicsCardComponent } from './component/compare-graphics-card/compare-graphics-card.component';
+import { BskComponent } from './bsk/bsk.component';
 
 const routes: Routes = [
   {path: 'compare-graphics-card/:id1/:id2', component: CompareGraphicsCardComponent},
@@ -65,7 +66,7 @@ const routes: Routes = [
   {path: 'processors', component: ProcessorListComponent},
   {path: 'graphics-cards', component: GraphicsCardListComponent},
   {path: 'informations', component: InformationsComponent},
-  {path: '', component: MainMenuComponent},
+  {path: '', component: BskComponent},
   {path: '**', redirectTo: '/', pathMatch: 'full'},
 
 ]
@@ -102,7 +103,8 @@ const routes: Routes = [
     CompareProcessorsListComponent,
     CompareProcessorsComponent,
     CompareGraphicsCardListComponent,
-    CompareGraphicsCardComponent
+    CompareGraphicsCardComponent,
+    BskComponent
   ],
   imports: [
     FormsModule,
@@ -110,7 +112,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxPaginationModule,
+    NgxPaginationModule
   ],
   providers: [GameService],
   bootstrap: [AppComponent]
